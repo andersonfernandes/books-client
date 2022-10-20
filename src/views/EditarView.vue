@@ -86,15 +86,8 @@ export default {
         resumo: this.resumo,
         ano_lancamento: this.ano_lancamento,
       }
-      const dataJson = JSON.stringify(data);
 
-      const req = await fetch(`https://expressaula.herokuapp.com/books/${this.id}`, {
-        method: "PATCH",
-        headers: {"Content-Type": "application/json"},
-        body: dataJson,
-      })
-
-      console.log(await req.json());
+      await server.patch(`/books/${this.id}`, data);
     }
   },
   async beforeMount() {
