@@ -1,19 +1,31 @@
 <template>
-  <div id="app">
-    <BooksList />
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/listaLivro">Lista de Livros</router-link>
+  </nav>
+  <hr/>
+  <router-view/>
 </template>
 
-<script>
-import BooksList from './components/books/List'
-
-export default {
-  name: 'App',
-  components: {
-    BooksList
-  }
-}
-</script>
-
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
