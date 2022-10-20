@@ -51,9 +51,8 @@ export default {
       }
     },
     async deleteBook(id) {
-      await fetch(`https://expressaula.herokuapp.com/books/${id}`, {
-        method: "DELETE",
-      });
+      await server.delete(`/books/${id}`);
+
       this.getBook();
     },
   },

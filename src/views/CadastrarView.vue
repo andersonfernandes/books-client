@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { server } from '@/services/config';
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -73,15 +74,7 @@ export default {
         ano_lancamento: this.ano_lancamento,
       }
 
-      console.log(data);
-
-      const dataJson = JSON.stringify(data);
-
-      const req = await fetch('https://expressaula.herokuapp.com/books', {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: dataJson,
-      })
+      await server.post('/books', data)
 
       //Limpar Campos
       this.title = '';
@@ -89,8 +82,6 @@ export default {
       this.isbn = '';
       this.resumo = '';
       this.ano_lancamento = '';
-
-      console.log(await req.json())
     }
   }
 }
